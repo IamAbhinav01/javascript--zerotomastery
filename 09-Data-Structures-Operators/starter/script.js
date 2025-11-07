@@ -22,34 +22,37 @@
 //   'garlic',
 // ]);
 
+// const common_foods = italianFoods.intersection(mexicanFoods);
+// console.log('Intersection: ', [...common_foods]);
+
 // Data needed for first part of the section
-const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  order: function (startIndex, mainIndex) {
-    return [this.starterMenu[startIndex], this.mainMenu[mainIndex]];
-  },
-  orderDelivery: function (obj) {
-    console.log(obj);
-  },
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
-};
+// const restaurant = {
+//   name: 'Classico Italiano',
+//   location: 'Via Angelo Tavanti 23, Firenze, Italy',
+//   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+//   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+//   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+//   order: function (startIndex, mainIndex) {
+//     return [this.starterMenu[startIndex], this.mainMenu[mainIndex]];
+//   },
+//   orderDelivery: function (obj) {
+//     console.log(obj);
+//   },
+//   openingHours: {
+//     thu: {
+//       open: 12,
+//       close: 22,
+//     },
+//     fri: {
+//       open: 11,
+//       close: 23,
+//     },
+//     sat: {
+//       open: 0, // Open 24 hours
+//       close: 24,
+//     },
+//   },
+// };
 
 // let [main, secondary] = restaurant.categories;
 // console.log(main, secondary);
@@ -73,20 +76,52 @@ const restaurant = {
 // const { menu = [], starterMenu: starters = [] } = restaurant;
 // console.log(menu, starters);
 
-let a = 111;
-let b = 999;
-const obj = { a: 23, b: 7, c: 14 };
-({ a, b } = obj);
-console.log(a, b);
+// let a = 111;
+// let b = 999;
+// const obj = { a: 23, b: 7, c: 14 };
+// ({ a, b } = obj);
+// console.log(a, b);
 
-const {
-  fri: { open, close },
-} = restaurant.openingHours;
-console.log(open, close);
+// const {
+//   fri: { open, close },
+// } = restaurant.openingHours;
+// console.log(open, close);
 
-const arr = [7, 8, 9];
-const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badNewArr);
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// console.log(badNewArr);
 
-const newArr = [1, 2, ...arr]; // all values of arr out and then spread it here.
-console.log(newArr);
+// const newArr = [1, 2, ...arr]; // all values of arr out and then spread it here.
+// console.log(newArr);
+
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
+
+// const orderSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Pasta']);
+// console.log(orderSet);
+
+const question = new Map([
+  ['question', 'what is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'JS'],
+  [3, 'Python'],
+  ['correct', 3],
+  [true, 'Correct🎉'],
+  [false, 'try again'],
+]);
+console.log(question);
+
+console.log(question.get('question'));
+for (const [key, value] of question) {
+  if (typeof key == 'number') console.log(`Answer ${key}: ${value}`);
+}
+const answer = Number(prompt('Your Anwer'));
+console.log(answer);
+
+if (answer === question.get('correct')) {
+  console.log(question.get(true));
+} else {
+  console.log(question.get(false));
+}
+
+console.log([...question]);
