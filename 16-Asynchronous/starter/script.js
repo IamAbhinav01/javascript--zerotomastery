@@ -86,7 +86,10 @@ function renderCountry(data1, className = '') {
 
 const getCountryData = function (country) {
   fetch(`https://restcountries.com/v2/name/${country}`)
-    .then(response => response.json())
+    .then(
+      response => response.json(),
+      err => alert(err)
+    )
     .then(data => {
       const countryData = data[1];
       renderCountry(countryData);
@@ -107,5 +110,6 @@ const getCountryData = function (country) {
     })
     .catch(err => console.error(err));
 };
-
-getCountryData('india');
+btn.addEventListener('click', function () {
+  getCountryData('india');
+});
